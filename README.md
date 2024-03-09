@@ -1,7 +1,7 @@
 #Important commands
 --------------
-vagrant up
-
 vagrant init
+
+vagrant up
 
 vagrant global-status
