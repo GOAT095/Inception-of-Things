@@ -1,0 +1,16 @@
+# Example 1
+#
+# Single box with some custom configuration.
+#
+# NOTE: Make sure you have the precise32 base box installed...
+# vagrant box add precise32 http://files.vagrantup.com/precise32.box
+
+Vagrant.configure("2") do |config|
+    config.vm.box = "bento/ubuntu-16.04"
+    config.vm.hostname = "anassifS"
+    config.vm.network :private_network, ip: "192.168.56.110"
+    config.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+      v.cpus = 1
+    end
+end
