@@ -7,5 +7,5 @@
     
     #inside the ubuntu vm run
 
-    $PLACEHOLDER$ sudo apt install vagrant<Vagrant>
-    $PLACEHOLDER$ sudo apt install virtualbox<Virtualbox>
+    <h3>sudo apt install vagrant</h3>
+    <h3>PLACEHOLDER$ sudo apt install virtualbox</h3>
