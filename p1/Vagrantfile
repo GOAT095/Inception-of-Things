@@ -8,9 +8,9 @@
 Vagrant.configure("2") do |config|
   #server
     config.vm.define "anassifS" do |server|
-    config.vm.box = "bento/ubuntu-16.04" #version
-    config.vm.hostname = "anassifS"
-    config.vm.network :private_network, ip: "192.168.56.110"
+    server.vm.box = "bento/ubuntu-16.04" #version
+    server.vm.hostname = "anassifS"
+    server.vm.network :private_network, ip: "192.168.56.110"
     config.vm.provider "virtualbox" do |v|
       v.memory = 1024
       v.cpus = 1
