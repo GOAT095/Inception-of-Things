@@ -6,17 +6,17 @@
 # vagrant box add precise32 http://files.vagrantup.com/precise32.box
 
 Vagrant.configure("2") do |config|
-
+  #server
+    config.vm.define "anassifS" do |server|
     config.vm.box = "bento/ubuntu-16.04" #version
     config.vm.hostname = "anassifS"
     config.vm.network :private_network, ip: "192.168.56.110"
-    
     config.vm.provider "virtualbox" do |v|
       v.memory = 1024
-      v.name = "anassifS"
       v.cpus = 1
+      v.name = "anassifS"
     end
-
-    
+    server.vm.provision "shell", path: "master/master.sh" #type shell , run the script
+    end
 
 end
