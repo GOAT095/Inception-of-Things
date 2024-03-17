@@ -13,4 +13,5 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="$flags" K3S_NODE_NAME="anassifS
 # cp "$k3sTokenFile" /vagrant/resources/.generated/k3s.token
 
 #cp the vagrant token to vagrant folder
+sudo rm -rf /vagrant/token.env
 sudo cat /var/lib/rancher/k3s/server/token >> /vagrant/token.env
