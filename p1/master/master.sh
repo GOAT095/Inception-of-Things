@@ -2,7 +2,6 @@
 #curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644 --tls-san anassifS
 
 
-
 masterIP="192.168.56.110"
 k3sTokenFile="/var/lib/rancher/k3s/server/node-token"
 flags="--tls-san $masterIP --node-external-ip $masterIP"
