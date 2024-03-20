@@ -14,3 +14,6 @@ Vagrant.configure("2") do |config|
     end
 
 end
+
+
+#https://kubernetes.io/docs/concepts/services-networking/ingress/ to read later for ingress yaml implementation
