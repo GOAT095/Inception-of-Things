@@ -1,19 +1,35 @@
-
 Vagrant.configure("2") do |config|
-  
-    config.vm.define "anassifS" do |server|
-        server.vm.box = "bento/ubuntu-16.04" #version
-        server.vm.hostname = "anassifS"
-        server.vm.network :private_network, ip: "192.168.56.110"
-        server.vm.provider "virtualbox" do |v|
-            v.memory = 1024
-            v.cpus = 1
-            v.name = "anassifS"
-        end
-        server.vm.provision "shell", path: "script.sh" #type shell , run the script
-    end
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.network "private_network", ip: "192.168.56.110"
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+    vb.cpus = 2
+  end
 
+  config.vm.provision "shell", inline: <<-SHELL
+    #Update packages
+    #sudo apt-get update
+    #sudo apt-get install -y apt-transport-https curl
+
+    #Install Docker
+    #curl -fsSL https://get.docker.com | sh
+    #sudo usermod -aG docker vagrant
+
+    #Install k3s
+    curl -sfL https://get.k3s.io | sh -
+
+    #Wait for k3s to be ready
+    sleep 30
+
+    #Apply Kubernetes manifests
+    kubectl apply -f /vagrant/apps/app1.yaml
+    kubectl apply -f /vagrant/apps/app2.yaml
+    kubectl apply -f /vagrant/apps/app3.yaml
+
+    #Install Nginx Ingress Controller
+    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/baremetal/deploy.yaml
+
+    #Apply Ingress resource
+    kubectl apply -f /vagrant/ingress.yaml
+  SHELL
 end
-
-
-#https://kubernetes.io/docs/concepts/services-networking/ingress/ to read later for ingress yaml implementation
