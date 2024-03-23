@@ -15,7 +15,7 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="$flags" K3S_NODE_NAME="anassifS
 #cp the vagrant token to vagrant folder
 sudo rm -rf /vagrant/token.env
 sudo cat /var/lib/rancher/k3s/server/token >> /vagrant/token.env
-
+sudo cp /etc/rancher/k3s/k3s.yaml  /vagrant/k3s.yaml
 
 #i need to take a look at this next to sole kubectl problem on slave
 #sudo vi /var/lib/rancher/k3os/config.yaml
