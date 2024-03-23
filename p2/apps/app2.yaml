@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: app-two
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: app-two
