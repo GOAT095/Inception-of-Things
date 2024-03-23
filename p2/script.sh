@@ -1,5 +1,9 @@
 #Install k3s
-curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server --node-ip 192.168.42.110" K3S_KUBECONFIG_MODE="644" sh -
+masterIP="192.168.56.110"
+# k3sTokenFile="/var/lib/rancher/k3s/server/node-token"
+flags="--tls-san $masterIP --node-external-ip $masterIP" 
+curl -sfL https://get.k3s.io |  INSTALL_K3S_EXEC="$flags" K3S_NODE_NAME="anassifS" K3S_KUBECONFIG_MODE="644" sh -
+
 #Wait for k3s to be ready
 sleep 30
 
@@ -17,5 +21,5 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main
 #test fixed Internal error occurred: failed calling webhook "validate.nginx.ingress.kubernetes.io
 kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 
-#Apply Ingress resource
+#Apply Ingress resource]
 kubectl apply -f /vagrant/apps/ingress.yaml
