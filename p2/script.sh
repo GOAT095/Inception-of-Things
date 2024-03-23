@@ -14,7 +14,7 @@ kubectl apply -f /vagrant/apps/app3.yaml
 #also using nginx ingress controller is better since traefik apparently can cause problems
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/baremetal/deploy.yaml
 
-#test
+#test fixed Internal error occurred: failed calling webhook "validate.nginx.ingress.kubernetes.io
 kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 
 #Apply Ingress resource
