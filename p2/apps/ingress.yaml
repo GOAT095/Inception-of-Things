@@ -34,3 +34,9 @@ spec:
             name: app-three
             port:
               number: 80
+  # Default backend so it defaults to app-two
+  defaultBackend:
+    service:
+      name: webapp2-service
+      port:
+        number: 80
