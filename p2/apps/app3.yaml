@@ -13,13 +13,18 @@ spec:
         app: app-three
     spec:
       containers:
-      - name: hello-kubernetes
-        image: paulbouwer/hello-kubernetes:1.8
+      - name: app-three
+        image: nginx:alpine
         ports:
         - containerPort: 80
-        env:
-        - name: MESSAGE
-          value: Hello from the app3!
+        volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: html-app1
+      volumes:
+      - name: html-app1
+        hostPath:
+          path: /vagrant/pages/app3/
+        
 ---
 apiVersion: v1
 kind: Service
