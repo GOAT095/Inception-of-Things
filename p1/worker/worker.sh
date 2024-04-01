@@ -10,6 +10,7 @@ curl -sfL https://get.k3s.io | K3S_URL=https://192.168.56.110:6443 K3S_TOKEN=${k
 
 
 sleep 30
+
 sudo cp /vagrant/k3s.yaml /etc/rancher/k3s/k3s.yaml
 sudo rm -rf /vagrant/k3s.yaml
 sudo rm -rf /vagrant/token.env

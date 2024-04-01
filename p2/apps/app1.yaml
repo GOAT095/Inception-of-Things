@@ -15,7 +15,7 @@ spec:
       containers:
       - name: app-one
         image: nginx:alpine
-        ports:
+        ports: 
         - containerPort: 80
         volumeMounts:
         - mountPath: /usr/share/nginx/html

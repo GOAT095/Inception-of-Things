@@ -4,9 +4,10 @@ masterIP="192.168.56.110"
 flags="--tls-san $masterIP --node-external-ip $masterIP" 
 curl -sfL https://get.k3s.io |  INSTALL_K3S_EXEC="$flags" K3S_NODE_NAME="anassifS" K3S_KUBECONFIG_MODE="644" sh -
 
+
+
 #Wait for k3s to be ready
 sleep 30
-
 #Apply Kubernetes manifests
 kubectl apply -f /vagrant/apps/app1.yaml
 kubectl apply -f /vagrant/apps/app2.yaml
