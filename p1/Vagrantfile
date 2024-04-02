@@ -6,7 +6,6 @@
 # vagrant box add precise32 http://files.vagrantup.com/precise32.box
 
 Vagrant.configure("2") do |config|
-  #zz
     config.vm.define "anassifS" do |server|
     server.vm.box = "bento/ubuntu-16.04" #version
     server.vm.hostname = "anassifS"
