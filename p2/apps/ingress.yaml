@@ -45,3 +45,4 @@ spec:
                 name: app-three
                 port: 
                     number: 80
+#kubectl get ingress -A
