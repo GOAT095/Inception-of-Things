@@ -16,7 +16,6 @@ kubectl apply -f /vagrant/apps/app3.yaml
 #Install Nginx Ingress Controller (ingress is an 
 #API object that helps developers expose their applications and manage external 
 #access by providing http/s routing rules to the services within a Kubernetes cluster.)
-#also using nginx ingress controller is better since traefik apparently can cause problems
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/baremetal/deploy.yaml
 
 #test fixed Internal error occurred: failed calling webhook "validate.nginx.ingress.kubernetes.io
