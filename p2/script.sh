@@ -18,7 +18,7 @@ kubectl apply -f /vagrant/apps/app3.yaml
 #access by providing http/s routing rules to the services within a Kubernetes cluster.)
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/baremetal/deploy.yaml
 
-#test fixed Internal error occurred: failed calling webhook "validate.nginx.ingress.kubernetes.io
+#fixed Internal error occurred: failed calling webhook "validate.nginx.ingress.kubernetes.io
 kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 
 #Apply Ingress resource]

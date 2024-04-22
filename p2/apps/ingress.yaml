@@ -1,48 +1,45 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: web-ingress
-  annotations:
-    kubernetes.io/ingress.class: traefik
+  name: my-ingress
 spec:
   rules:
   - host: app1.com
     http:
       paths:
-      - path: /
-        pathType: Prefix
+      - pathType: Prefix
+        path: /
         backend:
-            service:
-                name: app-one
-                port: 
-                    number: 80
+          service:
+            name: app-one
+            port:
+              number: 80
   - host: app2.com
     http:
       paths:
-      - path: /
-        pathType: Prefix
+      - pathType: Prefix
+        path: /
         backend:
-            service:
-                name: app-two
-                port: 
-                    number: 80
+          service:
+            name: app-two
+            port:
+              number: 80
   - host: app3.com
     http:
       paths:
-      - path: /
-        pathType: Prefix
+      - pathType: Prefix
+        path: /
         backend:
-            service:
-                name: app-three
-                port: 
-                    number: 80
+          service:
+            name: app-three
+            port:
+              number: 80
   - http:
       paths:
-      - path: /
-        pathType: Prefix
+      - pathType: Prefix
+        path: /
         backend:
-            service:
-                name: app-three
-                port: 
-                    number: 80
-#kubectl get ingress -A
+          service:
+            name: app3
+            port:
+              number: 80
