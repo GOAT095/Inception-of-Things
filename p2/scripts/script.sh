@@ -9,9 +9,9 @@ curl -sfL https://get.k3s.io |  INSTALL_K3S_EXEC="$flags" K3S_NODE_NAME="anassif
 #Wait for k3s to be ready
 sleep 30
 #Apply Kubernetes manifests
-kubectl apply -f /vagrant/apps/app1.yaml
-kubectl apply -f /vagrant/apps/app2.yaml
-kubectl apply -f /vagrant/apps/app3.yaml
+kubectl apply -f /vagrant/confs/apps/app1.yaml
+kubectl apply -f /vagrant/confs/apps/app2.yaml
+kubectl apply -f /vagrant/confs/apps/app3.yaml
 
 #Install Nginx Ingress Controller (ingress is an 
 #API object that helps developers expose their applications and manage external 
@@ -22,4 +22,6 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main
 kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 
 #Apply Ingress resource]
-kubectl apply -f /vagrant/apps/ingress.yaml
+tput setaf 2 ; echo "applying ingress..."
+kubectl apply -f /vagrant/confs/apps/ingress.yaml
+sleep 60

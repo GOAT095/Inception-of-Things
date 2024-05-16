@@ -9,6 +9,6 @@ Vagrant.configure("2") do |config|
             v.cpus = 1
             v.name = "anassifS"
         end
-        server.vm.provision "shell", path: "script.sh" #type shell , run the script
+        server.vm.provision "shell", path: "scripts/script.sh" #type shell , run the script
     end
 end

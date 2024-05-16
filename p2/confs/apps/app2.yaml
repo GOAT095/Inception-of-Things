@@ -23,7 +23,7 @@ spec:
       volumes:
       - name: html-app2
         hostPath:
-          path: /vagrant/pages/app2/
+          path: /vagrant/confs/pages/app2/
         
 ---
 apiVersion: v1
