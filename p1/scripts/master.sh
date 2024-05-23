@@ -20,6 +20,7 @@ sudo rm -rf /vagrant/k3s.yaml
 sudo cat /var/lib/rancher/k3s/server/token >> /vagrant/token.env
 sudo sed -i 's/127.0.0.1/192.168.56.110/g' /etc/rancher/k3s/k3s.yaml
 sudo cat /etc/rancher/k3s/k3s.yaml >> /vagrant/k3s.yaml
+sudo apt-get install -y net-tools
 
 #i need to take a look at this next to sole kubectl problem on slave
 #sudo vi /var/lib/rancher/k3s/config.yaml

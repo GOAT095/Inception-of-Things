@@ -14,3 +14,4 @@ sleep 30
 sudo cp /vagrant/k3s.yaml /etc/rancher/k3s/k3s.yaml
 sudo rm -rf /vagrant/k3s.yaml
 sudo rm -rf /vagrant/token.env
+sudo apt-get install -y net-tools
