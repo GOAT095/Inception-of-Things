@@ -22,6 +22,9 @@ sudo EXTERNAL_URL="http://localhost" apt-get install -y gitlab-ce
 echo "Configuring GitLab..."
 sudo gitlab-ctl reconfigure
 
+
+tput setaf 2 ; echo "password: "
+
 #extracting the password of gitlab initial root password 
 sudo cat /etc/gitlab/initial_root_password | grep "Password:"
 
