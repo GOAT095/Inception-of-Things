@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'http://your-gitlab-server/root/your-repo.git'
-    targetRevision: HEAD
+    targetRevision: HEAD #or main if not
     path: .
   destination:
     server: 'https://kubernetes.default.svc'

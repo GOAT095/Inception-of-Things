@@ -7,6 +7,8 @@ Vagrant.configure("2") do |config|
         # Forward port 80 (HTTP) and port 443 (HTTPS) to access GitLab from the host machine
         config.vm.network "forwarded_port", guest: 80, host: 8080
         config.vm.network "forwarded_port", guest: 443, host: 8443
+        # Synced folder configuration
+        config.vm.synced_folder "./confs", "/home/vagrant/confs", create: true
         server.vm.provider "virtualbox" do |v|
             v.memory = 4096
             v.cpus = 2
