@@ -11,7 +11,7 @@ spec:
   source: 
     repoURL: 'https://github.com/tchtaibii/tchtaibi-ception.git'
     targetRevision: master
-    path: p3/conf/
+    path: p3/confs/
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
