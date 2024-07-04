@@ -17,7 +17,3 @@ tput setaf 2 ; echo "password: "
 
 #extracting the password of gitlab initial root password 
 sudo cat /etc/gitlab/initial_root_password | grep "Password:"
-
-#Print the status of GitLab services
-echo "Checking GitLab status..."
-sudo gitlab-ctl status

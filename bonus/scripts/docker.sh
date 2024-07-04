@@ -22,10 +22,9 @@ sudo systemctl start docker
 # Add the current user to the docker group if not already added
 if ! groups $USER | grep -q "\bdocker\b"; then
   echo "Adding the current user to the docker group..."
-
-  # Add the current user to the docker group
   sudo usermod -aG docker $USER
-  
+  sudo systemctl restart docker
+  newgrp docker
   echo "User added to the docker group."
   echo "Please log out and log back in to apply the changes."
 else

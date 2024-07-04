@@ -9,7 +9,7 @@ flags="--tls-san $masterIP --node-external-ip $masterIP --node-ip $masterIP"  #h
 echo "[INFO] Install k3s on master-node"
 curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="$flags" K3S_NODE_NAME="anassifS" K3S_KUBECONFIG_MODE="644" sh - #K3S_KUBECONFIG_MODE for perm so its access rancher folder
 
-
+``
 #sleep so k3s starts properly and we find the files
 sleep 30
 

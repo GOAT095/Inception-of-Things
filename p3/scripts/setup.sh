@@ -1,45 +1,29 @@
 #!/bin/bash
 
-#curl
-if ! [ -x "$(command -v curl)" ]; then
-	if [ -x "$(command -v brew)" ]; then
-		echo "Using Homebrew to install curl..."
-		brew install curl
-	else
-		echo "Homebrew not found. Using apt-get for installation..."
-
-		# Check if the package manager is apt-get (for Debian/Ubuntu-based systems)
-		if [ -x "$(command -v apt-get)" ]; then
-		echo "Installing curl with apt-get..."
-
-		# Install curl using apt-get without sudo
-		apt-get update
-		apt-get install -y curl
-		else
-		echo "Unsupported package manager. Please install curl manually."
-		exit 1
-		fi
-	fi
+#brew
+if which brew; then
+    echo "Homebrew is already installed"
 else
-	echo "curl is already installed."
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/ubuntu/.bashrc
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 #docker
-if ! [ -x "$(command -v docker)" ]; then
-	echo "Docker is not installed. Installing Docker..."
-	bash docker.sh
-	echo "Docker has been installed successfully."
-else
+if which docker; then
 	echo "Docker is already installed."
+else
+	bash ./scripts/docker.sh
+	echo "docker has been installed successfully."
 fi
 
 #kubectl
-if ! [ -x "$(command -v kubectl)" ]; then
-	echo "kubectl is not installed. Installing kubectl..."
-	bash kubectl.sh
-	echo "kubectl has been installed successfully."
-else
+if which kubectl; then
 	echo "kubectl is already installed."
+else
+	echo "kubectl is not installed. Installing kubectl..."
+	bash ./scripts/kubectl.sh
+	echo "kubectl has been installed successfully."
 fi
 
 #k3d
