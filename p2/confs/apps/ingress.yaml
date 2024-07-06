@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: web-ingress
   annotations:
-    spec.ingressClassName: traefik #fixed warning to use spec,ingress unsteed of kub.io...
+    spec.ingressClassName: traefik #use traefik controller fixed warning to use spec,ingress unsteed of kub.io...
     #kubernetes.io/ingress.class: traefik
 spec:
   rules:

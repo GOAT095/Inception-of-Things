@@ -11,6 +11,7 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--node-ip $slaveIP" K3S_URL=htt
 
 sleep 30
 
+#bayn hadchi
 sudo cp /vagrant/k3s.yaml /etc/rancher/k3s/k3s.yaml
 sudo rm -rf /vagrant/k3s.yaml
 sudo rm -rf /vagrant/token.env

@@ -1,7 +1,7 @@
 #Install k3s
 masterIP="192.168.56.110"
 # k3sTokenFile="/var/lib/rancher/k3s/server/node-token"
-flags="--tls-san $masterIP --node-external-ip $masterIP" 
+flags="--tls-san $masterIP --node-external-ip $masterIP"
 curl -sfL https://get.k3s.io |  INSTALL_K3S_EXEC="$flags" K3S_NODE_NAME="anassifS" K3S_KUBECONFIG_MODE="644" sh -
 
 
