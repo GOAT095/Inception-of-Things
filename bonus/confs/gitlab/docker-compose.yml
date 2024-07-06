@@ -1,15 +1,17 @@
 services:
   web:
     image: 'gitlab/gitlab-ee:latest'
+    container_name: gitlab
     restart: always
     hostname: 'localhost'
     environment:
       GITLAB_OMNIBUS_CONFIG: |
         external_url 'http://localhost'
+      GITLAB_ROOT_PASSWORD: '1234'
     ports:
       - '80:80'
       - '443:443'
-      - '20000:22'
+      - '20220:22'
     volumes:
       - './config:/etc/gitlab'
       - './logs:/var/log/gitlab'
@@ -23,7 +25,6 @@ services:
     networks:
     - gitlab-network
     - argo-gitlab
-
 networks:
   gitlab-network:
     driver: bridge

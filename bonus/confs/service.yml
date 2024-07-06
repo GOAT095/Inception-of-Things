@@ -5,7 +5,7 @@ metadata:
   namespace: gitlab
 spec:
   selector:
-    app: myapp-gitlab
+    app: myapp-bonus
   ports:
   - name: gitlab
     port: 80

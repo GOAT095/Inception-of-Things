@@ -2,6 +2,11 @@ if [ "$(id -u)" != "0" ]; then
     echo "This script needs to be run with sudo."
     exit 1
 fi
+
+gitlab_ip=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' gitlab)
+
+echo "The IP address of the container is: $gitlab_ip"
+
 sh ./scripts/setup.sh
 sleep 1
 

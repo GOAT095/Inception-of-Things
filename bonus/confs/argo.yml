@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp-gitlab
+  name: myapp-bonus
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: http://172.22.0.5/root/iotbonus.git
+    repoURL: http://{gitlab_ip}/root/bonus.git
     targetRevision: main
     path: .
   destination:

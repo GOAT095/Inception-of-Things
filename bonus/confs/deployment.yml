@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-gitlab
+  name: myapp-bonus
   namespace: gitlab
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myapp-gitlab
+      app: myapp-bonus
   template:
     metadata:
       labels:
-        app: myapp-gitlab
+        app: myapp-bonus
     spec:
       containers:
-      - name: myapp-gitlab
+      - name: myapp-bonus
         image: wil42/playground:v1
         ports:
         - containerPort: 8888
