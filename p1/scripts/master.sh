@@ -9,7 +9,6 @@ flags="--tls-san $masterIP --node-external-ip $masterIP --node-ip $masterIP"  #h
 echo "[INFO] Install k3s on master-node"
 curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="$flags" K3S_NODE_NAME="anassifS" K3S_KUBECONFIG_MODE="644" sh - #K3S_KUBECONFIG_MODE for perm so its access rancher folder
 
-``
 #sleep so k3s starts properly and we find its necessary files 
 sleep 30
 
@@ -27,7 +26,8 @@ sudo sed -i 's/127.0.0.1/192.168.56.110/g' /etc/rancher/k3s/k3s.yaml
 sudo cat /etc/rancher/k3s/k3s.yaml >> /vagrant/k3s.yaml
 
 #net tools for ifconfig command not available in 20.04
-sudo apt-get install -y net-tools
+# sudo dpkg --configure -a
+# sudo apt-get install -y net-tools
 
 #i need to take a look at this next to sole kubectl problem on slave
 #sudo vi /var/lib/rancher/k3s/config.yaml
