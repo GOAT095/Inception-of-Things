@@ -4,6 +4,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 sh ./scripts/setup.sh
 sleep 1
+
 # sudo chmod -R 777 $HOME/.kube/config
 
 echo "$(tput setaf 2)Change the service of Argo-cd to Node Port."
@@ -17,6 +18,11 @@ kubectl apply -f confs/deployment.yml > /dev/null
 # Apply Argo application
 echo "$(tput setaf 2)Apply Argo application ..."
 kubectl apply -f confs/argo.yml > /dev/null
+
+# Apply Secret
+echo "$(tput setaf 2)Apply secret ..."
+kubectl apply -f confs/secret.yml > /dev/null
+sleep 30
 
 # Apply service
 echo "$(tput setaf 2)Apply service ..."
@@ -48,7 +54,7 @@ function ctrl_c() {
 # Wait for port forwarding to be established
 sleep 5
 
-echo "$(tput setaf 2)Port forwarding established. Access Argo CD at http://localhost:9000"
+echo "$(tput setaf 2)Port forwarding established. Access Argo CD at http://localhost:9000 | login : admin | password : $(sudo bash ./scripts/password.sh)"
 
 # Keep scripts running until interrupted
 while true; do

@@ -1,20 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-app
+  name: myapp-gitlab
   namespace: argocd
 spec:
   project: default
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: gitlab
-  source: 
-    repoURL: 'http://localhost/root/tfazfiza'
+  source:
+    repoURL: http://172.22.0.5/root/iotbonus.git
     targetRevision: main
-    path: /
+    path: .
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gitlab
   syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
     automated:
-      selfHeal: true
       prune: true
+      selfHeal: true

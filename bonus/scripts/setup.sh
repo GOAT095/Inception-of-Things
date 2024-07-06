@@ -34,16 +34,25 @@ else
 	curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash > /dev/null
 fi
 
-if which gitlab-ctl;then
-	echo 'gitlab kayn akhouya'
-else
-	bash ./scripts/gitlab.sh
-	echo 'hawa dkhal akhouya'
-fi
 sleep 1
 
-tput setaf 2; echo "Creation cluster with K3d"
-k3d cluster create p3 -p "8081:30001@agent:0" --agents 1 > /dev/null
+if ! docker network inspect argo-gitlab >/dev/null 2>&1; then
+    docker network create argo-gitlab
+    echo "Docker network 'argo-gitlab' created."
+else
+    echo "Docker network 'argo-gitlab' already exists."
+fi
+
+tput setaf 2; echo "Checking for existing cluster"
+
+# Check if the K3d cluster exists, create it if it doesn't
+if ! k3d cluster list | grep -q "p3"; then
+    echo "Creating cluster with K3d"
+    k3d cluster create p3 --network argo-gitlab -p "8081:30001@agent:0" --agents 1 > /dev/null
+    echo "K3d cluster 'p3' created."
+else
+    echo "K3d cluster 'p3' already exists."
+fi
 
 sleep 1
 
