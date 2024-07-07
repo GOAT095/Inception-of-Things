@@ -26,11 +26,11 @@ sudo sed -i 's/127.0.0.1/192.168.56.110/g' /etc/rancher/k3s/k3s.yaml
 sudo cat /etc/rancher/k3s/k3s.yaml >> /vagrant/k3s.yaml
 
 #net tools for ifconfig command not available in 20.04
-#wget http://archive.ubuntu.com/ubuntu/pool/main/n/net-tools/net-tools_1.60+git20161116.90da8a0-1ubuntu1_amd64.deb
+wget http://archive.ubuntu.com/ubuntu/pool/main/n/net-tools/net-tools_1.60+git20161116.90da8a0-1ubuntu1_amd64.deb
 
-#dpkg-deb -x net-tools_1.60+git20161116.90da8a0-1ubuntu1_amd64.deb net-tools
+dpkg-deb -x net-tools_1.60+git20161116.90da8a0-1ubuntu1_amd64.deb net-tools
 
-#sudo cp net-tools/sbin/ifconfig /usr/local/bin/
+sudo cp net-tools/sbin/ifconfig /usr/local/bin/
 
 # sudo dpkg --configure -a
 # sudo apt-get install -y net-tools

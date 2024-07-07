@@ -15,4 +15,11 @@ sleep 30
 sudo cp /vagrant/k3s.yaml /etc/rancher/k3s/k3s.yaml
 sudo rm -rf /vagrant/k3s.yaml
 sudo rm -rf /vagrant/token.env
+
+#ifconfig
+wget http://archive.ubuntu.com/ubuntu/pool/main/n/net-tools/net-tools_1.60+git20161116.90da8a0-1ubuntu1_amd64.deb
+
+dpkg-deb -x net-tools_1.60+git20161116.90da8a0-1ubuntu1_amd64.deb net-tools
+
+sudo cp net-tools/sbin/ifconfig /usr/local/bin/
 #sudo apt-get install -y net-tools
