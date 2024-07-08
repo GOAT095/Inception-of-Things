@@ -48,7 +48,7 @@ function ctrl_c() {
 # Wait for port forwarding to be established
 sleep 5
 
-echo "$(tput setaf 2)Port forwarding established. Access Argo CD at http://localhost:9000"
+echo "$(tput setaf 2)Port forwarding established. Access Argo CD at http://localhost:9000 | login : admin | password : $(sudo bash ./scripts/password.sh)"
 
 # Keep scripts running until interrupted
 while true; do
