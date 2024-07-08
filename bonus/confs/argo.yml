@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: http://{gitlab_ip}/root/bonus.git
+    repoURL: http://172.19.0.2/root/bonus.git
     targetRevision: main
     path: .
   destination:
