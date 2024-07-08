@@ -1,3 +1,4 @@
 .vagrant
+.vscode
 token.env
 k3s*
